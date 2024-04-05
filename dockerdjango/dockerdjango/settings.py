@@ -84,7 +84,11 @@ WSGI_APPLICATION = "dockerdjango.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    "default": env.db(),
+    #"default": env.db(),
+    'default': env.db_url(
+        'SQLITE_URL',
+        default='sqlite:///'+ os.path.join(os.path.dirname(os.path.realpath(__file__)), 'db.sqlite3')
+    )
     # "default": {
     #     "ENGINE": "django.db.backends.sqlite3",
     #     "NAME": BASE_DIR / "db.sqlite3",
