@@ -85,8 +85,8 @@ DATABASES = {
         "POSTGRES_DB": "MACONDUITE",
         "POSTGRES_USER": "MICHEL",
         "POSTGRES_PASSWORD": "MICHELPOSTGRES",
-        # "POSTGRES_HOST": "127.0.0.1",
-        # "POSTGRES_PORT": "5432",
+        "POSTGRES_HOST": "db",
+        "POSTGRES_PORT": "5432",
     }
 }
 
