@@ -25,10 +25,10 @@ services:
     image: postgres:13
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    environment:
-      - POSTGRES_USER=MICHEL
-      - POSTGRES_PASSWORD=MICHELPOSTGRES
-      - POSTGRES_DB=MACONDUITE
+    # environment:
+    #   - POSTGRES_USER=MICHEL
+    #   - POSTGRES_PASSWORD=MICHELPOSTGRES
+    #   - POSTGRES_DB=MACONDUITE
     networks:
       - networkapp
 volumes:
