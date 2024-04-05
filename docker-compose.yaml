@@ -16,7 +16,9 @@ services:
     depends_on:
       - db
     container_name: back
-    #command: gunicorn --bind 0.0.0.0:5000 --workers 2 "app:create_app()"
+    #command: gunicorn --bind 0.0.0.0:8000 --workers 2 "app:create_app()"
+    command: >
+      sh -c "python manage.py migrate"
     volumes:
       - app:/etc/app
     networks:
@@ -25,10 +27,10 @@ services:
     image: postgres:13
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    # environment:
-    #   - POSTGRES_USER=MICHEL
-    #   - POSTGRES_PASSWORD=MICHELPOSTGRES
-    #   - POSTGRES_DB=MACONDUITE
+    environment:
+      - POSTGRES_USER=MICHEL
+      - POSTGRES_PASSWORD=MICHELPOSTGRES
+      - POSTGRES_DB=MACONDUITE
     networks:
       - networkapp
 volumes:
