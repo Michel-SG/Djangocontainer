@@ -32,11 +32,16 @@ python manage.py makemigrations
 ### Migrate to the database
 python manage.py migrate
 
-### Build with docker-compose
+## Build with docker-compose
 docker compose up -d --build
 
 ### Make migrations
 docker compose exec back python manage.py migrate
+### If you get migration error, run this command to remove the volumes along with the containers.
+docker compose down -v
+
+### Build again 
+docker compose up -d --build
 
 ### Create superuser
 docker compose exec back python manage.py createsuperuser
