@@ -32,3 +32,12 @@ python manage.py makemigrations
 ### Migrate to the database
 python manage.py migrate
 
+### Build with docker-compose
+docker compose up -d --build
+
+### Make migrations
+docker compose exec back python manage.py migrate
+
+### Create superuser
+docker compose exec back python manage.py createsuperuser
+
