@@ -36,7 +36,10 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = bool(int(env("DEBUG")))
 
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
-
+CSRF_TRUSTED_ORIGINS = [
+    "http://10.0.0.0:8080",
+    "https://ip10-0-43-4-co9tc3sjf7n00083q8pg-8080.direct.docker.labs.eazytraining.fr",
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -84,14 +87,13 @@ WSGI_APPLICATION = "dockerdjango.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    #"default": env.db(),
+    # "default": env.db(),
     # 'default': env.db_url(
     #     'SQLITE_URL',
     #     default='sqlite:///'+ os.path.join(os.path.dirname(os.path.realpath(__file__)), 'db.sqlite3')
     # )
-    'default': env.db_url(
-       'DATABASE_URL',
-       default="postgresql://MICHEL:MICHELPOSTGRES@db:5432/MACONDUITE"
+    "default": env.db_url(
+        "DATABASE_URL", default="postgresql://MICHEL:MICHELPOSTGRES@db:5432/MACONDUITE"
     )
     # "default": {
     #     "ENGINE": "django.db.backends.sqlite3",
