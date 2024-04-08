@@ -89,22 +89,22 @@ DATABASES = {
     #     'SQLITE_URL',
     #     default='sqlite:///'+ os.path.join(os.path.dirname(os.path.realpath(__file__)), 'db.sqlite3')
     # )
-    'default': env.db_url(
-        'DATABASE_URL',
-        default="postgresql://MICHEL:MICHELPOSTGRES@db:5432/MACONDUITE"
-    )
+    #'default': env.db_url(
+    #    'DATABASE_URL',
+    #    default="postgresql://MICHEL:MICHELPOSTGRES@db:5432/MACONDUITE"
+    #)
     # "default": {
     #     "ENGINE": "django.db.backends.sqlite3",
     #     "NAME": BASE_DIR / "db.sqlite3",
     # }
-    # "default": {
-    #     "ENGINE": "django.db.backends.postgresql",
-    #     "POSTGRES_DB": "MACONDUITE",
-    #     "POSTGRES_USER": "MICHEL",
-    #     "POSTGRES_PASSWORD": "MICHELPOSTGRES",
-    #     "POSTGRES_HOST": "db",
-    #     "POSTGRES_PORT": "5432",
-    # }
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "postgres",
+        "USER": "postgres",
+        "PASSWORD": "postgres",
+        "HOST": "db",
+        "PORT": 5432,
+    }
 }
 
 
