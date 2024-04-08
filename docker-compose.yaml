@@ -16,21 +16,22 @@ services:
     depends_on:
       - db
     container_name: back
-    #command: gunicorn --bind 0.0.0.0:8000 --workers 2 "app:create_app()"
-    # command: >
-    #   sh -c "python manage.py migrate"
+    #command: gunicorn --bind 0.0.0.0:8000 --workers 2 "dockerdjango.wsgi:application"
+    #command: >
+      #sh -c "python manage.py runserver 0.0.0.0:8000"
     volumes:
       - app:/etc/app
     networks:
       - networkapp
   db:
-    image: postgres:13
+    image: postgres:14
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=MICHEL
-      - POSTGRES_PASSWORD=MICHELPOSTGRES
-      - POSTGRES_DB=MACONDUITE
+      #- POSTGRES_USER=MICHEL
+      #- POSTGRES_PASSWORD=MICHELPOSTGRES
+      #- POSTGRES_DB=MACONDUITE
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
     networks:
       - networkapp
 volumes:
